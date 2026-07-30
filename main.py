@@ -1,6 +1,7 @@
 from src.data.data_loader import DataLoader
 from src.data.data_validation import DataValidation
 from src.features.feature_engineering import FeatureEngineering
+from src.preprocessing.preprocessing import DataPreprocessor
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -26,7 +27,10 @@ def main():
     validation.plot_correlation()
     feature_engineering = FeatureEngineering(df)
     df = feature_engineering.create_features()
-    print(df.head())
+
+    preprocessor = DataPreprocessor(df)
+
+    transformer = preprocessor.get_preprocessor()
 
 if __name__ == "__main__":
     main()
