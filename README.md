@@ -106,17 +106,13 @@ Business Recommendation
 
 > Add dashboard screenshot here
 
-```
 ![Dashboard](images/dashboard.png)
-```
 
 ### Prediction Example
 
 > Add prediction screenshot here
 
-```
 ![Prediction](images/prediction.png)
-```
 
 ## 📈 Model Evaluation
 
