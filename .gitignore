@@ -1,0 +1,54 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment Variables
+.env
+
+# Python Packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# ==========================
+# ML Artifacts
+# ==========================
+
+# Trained Models
+models/trained/*.pkl
+
+# Reports
+outputs/reports/
+
+# Predictions
+outputs/predictions/
+
+# Generated Plots
+outputs/plots/
+
+# Cache
+.cache/
+
+# Streamlit Cache
+.streamlit/secrets.toml
