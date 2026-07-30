@@ -1,5 +1,5 @@
 from src.data.data_loader import DataLoader
-
+from src.data.data_validation import DataValidation
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -11,6 +11,18 @@ def main():
     df = loader.load_data()
 
     loader.data_summary(df)
+
+    validation = DataValidation(df)
+
+    validation.create_output_directory()
+
+    validation.basic_summary()
+
+    validation.plot_target_distribution()
+
+    validation.plot_transaction_amount()
+
+    validation.plot_correlation()
 
 
 if __name__ == "__main__":
