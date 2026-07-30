@@ -6,6 +6,8 @@ from src.features.feature_engineering import FeatureEngineering
 from src.preprocessing.preprocessing import DataPreprocessor
 from src.models.compare_models import ModelComparison
 from src.models.evaluate import ModelEvaluator
+from src.models.predict import FraudPredictor
+from src.risk.risk_scoring import RiskScorer
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -46,6 +48,35 @@ def main():
     evaluator.classification_report()
     evaluator.confusion_matrix()
     evaluator.roc_curve()
+    predictor = FraudPredictor(best_model)
+
+    risk_engine = RiskScorer(best_model)
+
+    sample_transaction = X_test.iloc[[0]]
+
+    prediction, probability = predictor.predict(
+        sample_transaction
+    )
+
+    risk = risk_engine.score_transaction(
+        sample_transaction
+    )
+
+    print("=" * 60)
+    print("Prediction")
+    print("=" * 60)
+
+    print(prediction)
+
+    print(probability)
+
+    print()
+
+    print("=" * 60)
+    print("Risk Assessment")
+    print("=" * 60)
+
+    print(risk)
 
 
 if __name__ == "__main__":
