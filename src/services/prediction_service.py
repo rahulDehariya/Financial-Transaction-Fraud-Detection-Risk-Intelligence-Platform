@@ -23,9 +23,8 @@ class PredictionService:
 
         # Prediction
         prediction = self.predictor.predict(
-            transaction_df.to_dict(orient="records")[0]
+            transaction_df
         )
-
         # Risk Score
         risk = self.risk_engine.score_transaction(
             transaction_df
