@@ -107,7 +107,7 @@ Business Recommendation
 > Add dashboard screenshot here
 
 ```
-images/dashboard.png
+![Dashboard](images/dashboard.png)
 ```
 
 ### Prediction Example
@@ -115,7 +115,7 @@ images/dashboard.png
 > Add prediction screenshot here
 
 ```
-images/prediction.png
+![Prediction](images/prediction.png)
 ```
 
 ## 📈 Model Evaluation
