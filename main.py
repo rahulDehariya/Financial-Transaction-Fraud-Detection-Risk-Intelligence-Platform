@@ -1,7 +1,10 @@
+import pandas as pd
+
 from src.data.data_loader import DataLoader
 from src.data.data_validation import DataValidation
 from src.features.feature_engineering import FeatureEngineering
 from src.preprocessing.preprocessing import DataPreprocessor
+from src.models.compare_models import ModelComparison
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -31,6 +34,10 @@ def main():
     preprocessor = DataPreprocessor(df)
 
     transformer = preprocessor.get_preprocessor()
+    comparison = ModelComparison(df, transformer)
+    results, best_model = comparison.compare()
+    results_df = pd.DataFrame(results)
+    print(results_df)
 
 if __name__ == "__main__":
     main()
