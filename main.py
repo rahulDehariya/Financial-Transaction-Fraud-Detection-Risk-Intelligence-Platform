@@ -10,6 +10,7 @@ from src.models.predict import FraudPredictor
 from src.risk.risk_scoring import RiskScorer
 from src.services.prediction_service import PredictionService
 from src.examples.sample_transaction import get_sample_transaction
+from src.models.save_model import ModelSaver
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -83,6 +84,8 @@ def main():
     transaction = get_sample_transaction()
     result = service.predict_transaction(transaction)
     print(result)
+    saver = ModelSaver(best_model)
+    saver.save()
 
 
 if __name__ == "__main__":
