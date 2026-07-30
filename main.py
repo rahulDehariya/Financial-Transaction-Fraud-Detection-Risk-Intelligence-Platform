@@ -8,6 +8,8 @@ from src.models.compare_models import ModelComparison
 from src.models.evaluate import ModelEvaluator
 from src.models.predict import FraudPredictor
 from src.risk.risk_scoring import RiskScorer
+from src.services.prediction_service import PredictionService
+from src.examples.sample_transaction import get_sample_transaction
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -77,6 +79,10 @@ def main():
     print("=" * 60)
 
     print(risk)
+    service = PredictionService(best_model)
+    transaction = get_sample_transaction()
+    result = service.predict_transaction(transaction)
+    print(result)
 
 
 if __name__ == "__main__":
