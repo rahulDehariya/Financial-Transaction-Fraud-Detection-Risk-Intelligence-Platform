@@ -5,6 +5,7 @@ from src.data.data_validation import DataValidation
 from src.features.feature_engineering import FeatureEngineering
 from src.preprocessing.preprocessing import DataPreprocessor
 from src.models.compare_models import ModelComparison
+from src.models.evaluate import ModelEvaluator
 
 DATA_PATH = "data/raw/financial_transactions_fraud_dataset.xlsx"
 
@@ -35,9 +36,17 @@ def main():
 
     transformer = preprocessor.get_preprocessor()
     comparison = ModelComparison(df, transformer)
-    results, best_model = comparison.compare()
+    results, best_model, X_test, y_test = comparison.compare()
     results_df = pd.DataFrame(results)
-    print(results_df)
+    evaluator = ModelEvaluator(
+        best_model,
+        X_test,
+        y_test
+    )
+    evaluator.classification_report()
+    evaluator.confusion_matrix()
+    evaluator.roc_curve()
+
 
 if __name__ == "__main__":
     main()

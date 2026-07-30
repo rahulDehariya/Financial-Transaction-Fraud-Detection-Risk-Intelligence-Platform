@@ -88,4 +88,9 @@ class ModelComparison:
 
                 best_model = pipeline
 
-        return results, best_model
+        return (
+            results,
+            best_model,
+            X_test,
+            y_test
+        )
